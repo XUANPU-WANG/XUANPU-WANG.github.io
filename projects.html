@@ -3,26 +3,15 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Projects - Your Name</title>
-  <meta name="author" content="Your Name">
+  <title>Projects - Xuanpu Wang</title>
+  <meta name="author" content="Xuanpu Wang">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Projects by Your Name.">
+  <meta name="description" content="Research projects by Xuanpu Wang.">
   <meta name="robots" content="index, follow">
-
-  <meta property="og:title" content="Projects - Your Name">
-  <meta property="og:description" content="Projects by Your Name.">
-  <meta property="og:image" content="https://yourwebsite.com/figures/me.jpg">
-  <meta property="og:url" content="https://yourwebsite.com/projects.html">
-  <meta property="og:type" content="profile">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Projects - Your Name">
-  <meta name="twitter:description" content="Projects by Your Name.">
-  <meta name="twitter:image" content="https://yourwebsite.com/figures/me.jpg">
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
   <link rel="stylesheet" type="text/css" href="shared-styles.css">
-  <link rel="icon" type="image/png" href="figures/logo.png">
+  <link rel="stylesheet" href="site-custom.css">
   <style>
     .page-title {
       font-size: 24px;
@@ -98,111 +87,19 @@
 
   <main id="main-content" class="main-content-wrapper page-shell">
     <h1 class="page-title">Projects</h1>
-
-    <div style="margin-bottom:24px;">
-      <ul id="projects-list">
-        <!-- Projects will be inserted here -->
-      </ul>
-    </div>
+    <ul id="projects-list">
+      <li class="project-item"><button class="media-slot" type="button" data-video="throwing" aria-label="Enlarge Vision-Based Aerial Throwing video"><span>Coming Soon</span></button><div class="project-content"><div class="project-title">Vision-Based Aerial Throwing</div><div class="project-description">Developing vision-based methods for quadrotors to accurately throw objects toward designated targets.</div></div></li>
+      <li class="project-item"><button class="media-slot" type="button" data-video="cofinav" aria-label="Enlarge CoFiNav video"><span>Coming Soon</span></button><div class="project-content"><div class="project-title">CoFiNav: VLM-Guided UAV Navigation via Hierarchical Search for Language-Grounded Last-Mile Delivery</div><div class="project-description">Enabling UAV to autonomously navigate to delivery destinations specified by natural-language descriptions, without relying on predefined coordinates or visual markers.</div></div></li>
+      <li class="project-item"><button class="media-slot" type="button" data-video="uav-ugv" aria-label="Enlarge UAV–UGV Collaboration video"><span>Coming Soon</span></button><div class="project-content"><div class="project-title">UAV–UGV Collaboration</div><div class="project-description">UAV autonomous takeoff, perception, and landing on a mobile UGV platform.</div></div></li>
+    </ul>
   </main>
 
   <div id="site-footer"></div>
 
-  <!-- Load JavaScript files -->
   <script src="site-shell.js"></script>
   <script src="utils.js"></script>
-  <!-- Load data first, then populate projects -->
-  <script src="data.js"></script>
-  <script>
-    // Projects page specific script
-    document.addEventListener('DOMContentLoaded', function() {
-      // Populate all projects (both selected and non-selected)
-      populateProjects(getAllProjects(), 'projects-list');
-
-      // Initialize dark mode toggle (uses utils.js with sun/moon icons)
-      initializeDarkMode();
-
-      // Initialize back to top button
-      initializeBackToTop();
-    });
-
-    /**
-     * Function to populate projects in the specified container element
-     * @param {Array} projects - Array of project objects
-     * @param {string} containerId - ID of the container element to populate
-     */
-    function populateProjects(projects, containerId) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-
-      projects.forEach(project => {
-        const li = document.createElement('li');
-        li.className = 'project-item';
-
-        // Project demo image
-        if (project.demoPath) {
-          const imgDiv = document.createElement('div');
-          const img = document.createElement('img');
-          img.src = project.demoPath;
-          img.alt = `${project.title} demo`;
-          img.className = 'project-demo-image';
-          img.loading = 'lazy';
-
-          // Check if project has a homepage link to make image clickable
-          const homepageMatch = project.description.match(/<a href="([^"]+)">Project Homepage<\/a>/);
-          if (homepageMatch) {
-            const homepageUrl = homepageMatch[1];
-            const imgLink = document.createElement('a');
-            imgLink.href = homepageUrl;
-            imgLink.target = '_blank';
-            imgLink.rel = 'noopener';
-            imgLink.style.textDecoration = 'none';
-            imgLink.appendChild(img);
-            imgDiv.appendChild(imgLink);
-          } else {
-            imgDiv.appendChild(img);
-          }
-
-          li.appendChild(imgDiv);
-        }
-
-        // Project content container
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'project-content';
-
-        // Project title with homepage link
-        const titleDiv = document.createElement('div');
-        titleDiv.className = 'project-title';
-
-        // Check if project has a homepage link in the description
-        const homepageMatch = project.description.match(/<a href="([^"]+)">Project Homepage<\/a>/);
-        if (homepageMatch) {
-          const homepageUrl = homepageMatch[1];
-          const titleText = project.title;
-          titleDiv.innerHTML = `<strong><a href="${homepageUrl}" target="_blank" rel="noopener">${titleText}</a></strong>`;
-        } else {
-          titleDiv.textContent = project.title;
-        }
-
-        // Project description (remove homepage link from description since it's now in title)
-        const descDiv = document.createElement('div');
-        descDiv.className = 'project-description';
-        // Remove the homepage link from description since it's now in the title
-        const cleanDescription = project.description.replace(/<a href="[^"]+">Project Homepage<\/a>/, '');
-        // Clean up any extra spaces or punctuation that might be left
-        const finalDescription = cleanDescription.replace(/\s*\(\s*\)\s*/, '').trim();
-        descDiv.innerHTML = finalDescription;
-
-        // Append elements
-        contentDiv.appendChild(titleDiv);
-        contentDiv.appendChild(descDiv);
-        li.appendChild(contentDiv);
-        container.appendChild(li);
-      });
-    }
-
-    // Dark mode functions are loaded from utils.js
-  </script>
+  <script src="site-init.js"></script>
+  <script src="media.js"></script>
 </body>
 
 </html>

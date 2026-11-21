@@ -1,0 +1,24 @@
+/* Small additions to the upstream template's typography and layout. */
+.profile-section .profile-photo { width: 160px !important; height: 220px !important; object-fit: cover; object-position: center top; }
+.homepage-section p { line-height: 1.7; }
+.homepage-section #projects-list { padding-left: 20px; }
+.homepage-section #projects-list li { margin-bottom: 10px; }
+.media-slot { width: 120px; height: 80px; flex: 0 0 120px; display: flex; align-items: center; justify-content: center; padding: 0; border: 1px solid #d6dbe2; color: #7a8492; background: var(--hover-bg); font: inherit; font-size: 12px; text-align: center; overflow: hidden; cursor: zoom-in; }
+.media-slot:disabled { cursor: default; }
+.media-slot video { width: 100%; height: 100%; object-fit: cover; }
+.publication-media-item { display: flex; gap: 15px; align-items: flex-start; margin-bottom: 18px; }
+.publication-media-item .papertitle { font-weight: 700; }
+.publication-media-item .paper_rest { margin-top: 5px; }
+.publication-description { margin: 7px 0 0; line-height: 1.6; }
+.video-dialog { width: min(90vw, 1000px); max-width: none; padding: 16px; border: 1px solid var(--border-color); background: var(--bg-color); color: var(--text-color); }
+.video-dialog::backdrop { background: rgba(0,0,0,.78); }
+.video-dialog-content video { width: 100%; max-height: 80vh; display: block; }
+.video-close { display: block; margin-left: auto; margin-bottom: 8px; border: 0; background: transparent; color: var(--text-color); font-size: 25px; cursor: pointer; }
+.cv-entry { margin-bottom: 20px; line-height: 1.6; }
+.cv-entry-head { display: flex; justify-content: space-between; gap: 16px; }
+.cv-entry-head span:last-child { text-align: right; }
+.about-page .about-section .cv-entry ul { list-style: disc; padding-left: 20px; margin-top: 5px; }
+.about-page .about-section .cv-entry li { margin-bottom: 4px; }
+[data-theme="dark"] .photo-placeholder, [data-theme="dark"] .media-slot { border-color: #374151; color: #a9b3c0; }
+@media (max-width: 768px) { .project-item .media-slot { flex: none; width: 120px; height: 80px; } }
+@media (max-width: 600px) { .cv-entry-head { display: block; } .cv-entry-head span:last-child { display: block; text-align: left; } .publication-media-item { display: block; } .publication-media-item .media-slot { margin-bottom: 10px; } }
