@@ -1,21 +1,32 @@
-# Xuanpu Wang — academic website
+# Xuanpu Wang's Academic Website
 
-This static website is based on the [Academic Homepage Template](https://github.com/Arvid-pku/Academic-Homepage-Template). It has four pages: Home, Projects, Publications, and CV.
+Personal academic website of Xuanpu Wang, hosted on GitHub Pages.
+
+**Live site:** [xuanpu-wang.github.io](https://xuanpu-wang.github.io/)
+
+## Pages
+
+- **Home** — introduction, research interests, and selected projects.
+- **Projects** — research projects with video previews where available.
+- **Publications** — research paper information and related media.
+- **CV** — HTML CV with a link to the [PDF version](files/XuanpuWang.pdf).
 
 ## Local preview
 
-From this directory, run:
+This is a static HTML, CSS, and JavaScript website. No build step or dependencies are required. From the repository directory, run:
 
 ```powershell
 python -m http.server 8000 --bind 127.0.0.1
 ```
 
-Open <http://127.0.0.1:8000/>. No build step or dependencies are required.
+Then open <http://127.0.0.1:8000/>.
 
-## Before deployment
+## Updating the site
 
-Review the name, email, research wording, and manuscript status. The CV page presents the supplied PDF as HTML, with the Tsinghua University High School entry added. The `[PDF]` link opens `files/XuanpuWang.pdf`.
+Edit the HTML pages in the repository root. The profile photo is at `figures/me.jpg`, and the CV PDF and project videos are in `files/`. Video paths are configured in `media.js`; an empty path displays "Coming Soon". Available previews play muted and loop, and can be opened in a larger player.
 
-The home page photo is `figures/me.jpg`.
+The site is published through GitHub Pages from the `main` branch. Push changes to that branch to update the live site.
 
-Video slots are reserved on the Projects and Publications pages. Add approved MP4 files to the site and set their paths in `VIDEO_SOURCES` at the top of `media.js`. The thumbnails then autoplay silently and loop; clicking opens a larger player. The same `cofinav` video path is used on both pages.
+## Credits
+
+Based on the [Academic Homepage Template](https://github.com/Arvid-pku/Academic-Homepage-Template) by [Xunjian Yin](https://xunjianyin.github.io/).
